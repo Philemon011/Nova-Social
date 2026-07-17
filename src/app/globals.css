@@ -1,26 +1,106 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Design system — Agence Community Management */
+  --color-primary: #FF7A1A;
+  --color-secondary: #FFB347;
+  --color-accent: #FFE6CC;
+  --color-background: #FAFAFA;
+  --color-foreground: #111111;
+  --color-foreground-secondary: #666666;
+  --color-border: #ECECEC;
+  --color-white: #FFFFFF;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-accent: var(--color-accent);
+  --color-background: var(--color-background);
+  --color-foreground: var(--color-foreground);
+  --color-foreground-secondary: var(--color-foreground-secondary);
+  --color-border: var(--color-border);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+
+  /* Rayons de bordure premium (16-28px) */
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-3xl: 28px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -0.011em;
+}
+
+/* Letter-spacing serré pour les grands titres */
+.tracking-tight-hero {
+  letter-spacing: -0.045em;
+}
+
+.tracking-tight-body {
+  letter-spacing: -0.015em;
+}
+
+.font-display {
+  font-family: var(--font-display), var(--font-sans), sans-serif;
+}
+
+.text-gradient-dark {
+  background: linear-gradient(180deg, #111111 0%, #999999 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+
+
+/* Marquee — défilement infini du bandeau d'avis */
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee-scroll 38s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.marquee-fade {
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+}
+
+/* Douce respiration verticale pour les cartes du collage */
+@keyframes float-soft {
+  0%, 100% {
+    transform: translateY(0) rotate(var(--card-rotate, 0deg));
+  }
+  50% {
+    transform: translateY(-10px) rotate(var(--card-rotate, 0deg));
+  }
 }
