@@ -16,7 +16,7 @@ const FORMULES = [
   {
     nom: "Essentielle",
     description: "Pour lancer une présence sociale cohérente.",
-    prix: "150 000",
+    prix: "50 000",
     periode: "/ mois",
     featured: false,
     inclus: [
@@ -31,7 +31,7 @@ const FORMULES = [
   {
     nom: "Croissance",
     description: "Pour une marque qui veut accélérer durablement.",
-    prix: "320 000",
+    prix: "105 000",
     periode: "/ mois",
     featured: true,
     badge: "La plus choisie",
